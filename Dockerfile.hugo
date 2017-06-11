@@ -1,0 +1,13 @@
+FROM guzo/base
+
+RUN mkdir -p /tmp/scratch && \
+    cd /tmp/scratch && \
+    curl -sLO https://github.com/spf13/hugo/releases/download/v0.21/hugo_0.21_Linux-64bit.tar.gz && \
+    tar zxvf hugo_0.21_Linux-64bit.tar.gz && \
+    cp hugo /usr/local/bin && \
+    cd /tmp/ && \
+    rm -rf scratch
+
+USER ian
+EXPOSE 8080
+CMD hugo --help

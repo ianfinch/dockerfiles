@@ -1,0 +1,8 @@
+FROM guzo/base
+
+RUN apk update && \
+    apk add --no-cache nodejs && \
+    npm install -g less && \
+    rm -rf /tmp/npm-*
+
+CMD npm --help
