@@ -3,6 +3,7 @@ FROM guzo/base
 RUN apk update && \
     apk add --no-cache nodejs && \
     npm install -g less && \
+    npm install -g onchange && \
     rm -rf /tmp/npm-*
 
 CMD npm --help
