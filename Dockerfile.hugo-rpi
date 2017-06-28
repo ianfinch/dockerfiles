@@ -1,0 +1,18 @@
+FROM hypriot/rpi-alpine
+
+RUN adduser -D ian
+
+RUN apk update && \
+    apk add curl && \
+    mkdir -p /tmp/scratch && \
+    cd /tmp/scratch && \
+    curl -sLO https://github.com/gohugoio/hugo/releases/download/v0.24.1/hugo_0.24.1_Linux-ARM.tar.gz && \
+    apk del curl && \
+    tar zxvf hugo_0.24.1_Linux-ARM.tar.gz && \
+    cp hugo /usr/local/bin && \
+    cd /tmp/ && \
+    rm -rf scratch
+
+USER ian
+EXPOSE 8080
+CMD hugo --help
