@@ -1,0 +1,14 @@
+FROM guzo/base
+
+RUN apk --no-cache --virtual guzo-dependencies add alpine-sdk ncurses-dev     && \
+    mkdir /opt                                                                && \
+    cd /opt                                                                   && \
+    git clone http://github.com/jonas/tig                                     && \
+    cd /opt/tig/                                                              && \
+    make prefix=/usr/local                                                    && \
+    make install prefix=/usr/local                                            && \
+    apk del alpine-sdk ncurses-dev guzo-dependencies                          && \
+    rm -rf /opt
+
+USER ian
+CMD tig

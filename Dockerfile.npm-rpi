@@ -1,8 +1,0 @@
-FROM hypriot/rpi-node
-
-RUN useradd --create-home ian
-
-RUN npm install -g less && \
-    npm install -g onchange
-
-CMD npm --help
