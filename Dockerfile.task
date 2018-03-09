@@ -1,0 +1,8 @@
+FROM guzo/base
+RUN apk update                                                 && \
+    apk add task                                               && \
+    mkdir -p /usr/src/task                                     && \
+    echo "data.location=/usr/src/task" > /home/ian/.taskrc
+
+USER ian
+ENTRYPOINT [ "task" ]
