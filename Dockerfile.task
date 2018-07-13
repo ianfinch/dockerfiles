@@ -1,8 +1,25 @@
 FROM guzo/base
-RUN apk update                                                 && \
-    apk add task                                               && \
-    mkdir -p /usr/src/task                                     && \
-    echo "data.location=/usr/src/task" > /home/ian/.taskrc
+
+RUN apk update                                                                                                                                                                              && \
+    apk add task                                                                                                                                                                            && \
+    echo "data.location=/usr/src/data" > /home/ian/.taskrc                                                                                                                                  && \
+    echo "uda.owner.type=string" >> /home/ian/.taskrc                                                                                                                                       && \
+    echo "uda.owner.label=Owner" >> /home/ian/.taskrc                                                                                                                                       && \
+    echo "urgency.uda.owner.coefficient=-10.0" >> /home/ian/.taskrc                                                                                                                         && \
+    echo "report.next.columns=id,start.age,entry.age,depends,priority,project,tags,owner,recur,scheduled.countdown,due.relative,until.remaining,description,urgency" >> /home/ian/.taskrc   && \
+    echo "report.next.labels=ID,Active,Age,Deps,P,Project,Tag,Owner,Recur,S,Due,Until,Description,Urg" >> /home/ian/.taskrc                                                                 && \
+    echo "color.alternate=on color0" >> /home/ian/.taskrc                                                                                                                                   && \
+    echo "color.active=rgb040" >> /home/ian/.taskrc                                                                                                                                         && \
+    echo "color.tagged=rgb025" >> /home/ian/.taskrc                                                                                                                                         && \
+    echo "color.burndown.done=on rgb025" >> /home/ian/.taskrc                                                                                                                               && \
+    echo "color.burndown.pending=on rgb420" >> /home/ian/.taskrc                                                                                                                            && \
+    echo "color.burndown.started=on rgb040" >> /home/ian/.taskrc
+
+#RUN mkdir -p /opt && \
+#    apk add perl && \
+#    git clone https://github.com/scottkosty/vit.git && \
+#    cd vit && \
+#    ./configure
 
 USER ian
-ENTRYPOINT [ "task" ]
+CMD [ "task" ]
