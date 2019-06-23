@@ -2,8 +2,8 @@ FROM guzo/base
 
 RUN mkdir -p /tmp/scratch && \
     cd /tmp/scratch && \
-    curl -sLO https://github.com/spf13/hugo/releases/download/v0.51/hugo_0.51_Linux-64bit.tar.gz && \
-    tar zxvf hugo_0.51_Linux-64bit.tar.gz && \
+    curl -sLO https://github.com/gohugoio/hugo/releases/download/v0.55.3/hugo_0.55.3_Linux-64bit.tar.gz && \
+    tar zxvf hugo_0.55.3_Linux-64bit.tar.gz && \
     cp hugo /usr/local/bin && \
     cd /tmp/ && \
     rm -rf scratch
