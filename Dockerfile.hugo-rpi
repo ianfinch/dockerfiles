@@ -1,14 +1,12 @@
-FROM hypriot/rpi-alpine
+FROM guzo/base:armv7l
 
-RUN adduser -D ian
+ARG hugo_version=0.55.3
+ARG hugo_arch=ARM
 
-RUN apk update && \
-    apk add curl && \
-    mkdir -p /tmp/scratch && \
+RUN mkdir -p /tmp/scratch && \
     cd /tmp/scratch && \
-    curl -sLO https://github.com/gohugoio/hugo/releases/download/v0.24.1/hugo_0.24.1_Linux-ARM.tar.gz && \
-    apk del curl && \
-    tar zxvf hugo_0.24.1_Linux-ARM.tar.gz && \
+    curl -sLO https://github.com/gohugoio/hugo/releases/download/v${hugo_version}/hugo_${hugo_version}_Linux-${hugo_arch}.tar.gz && \
+    tar zxvf hugo_${hugo_version}_Linux-${hugo_arch}.tar.gz && \
     cp hugo /usr/local/bin && \
     cd /tmp/ && \
     rm -rf scratch

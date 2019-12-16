@@ -1,9 +1,12 @@
 FROM guzo/base
 
+ARG hugo_version=0.55.3
+ARG hugo_arch=64bit
+
 RUN mkdir -p /tmp/scratch && \
     cd /tmp/scratch && \
-    curl -sLO https://github.com/gohugoio/hugo/releases/download/v0.55.3/hugo_0.55.3_Linux-64bit.tar.gz && \
-    tar zxvf hugo_0.55.3_Linux-64bit.tar.gz && \
+    curl -sLO https://github.com/gohugoio/hugo/releases/download/v${hugo_version}/hugo_${hugo_version}_Linux-${hugo_arch}.tar.gz && \
+    tar zxvf hugo_${hugo_version}_Linux-${hugo_arch}.tar.gz && \
     cp hugo /usr/local/bin && \
     cd /tmp/ && \
     rm -rf scratch
