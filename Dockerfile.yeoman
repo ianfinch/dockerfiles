@@ -1,0 +1,5 @@
+FROM guzo/npm
+
+RUN npm install -g yo
+
+CMD "bash"

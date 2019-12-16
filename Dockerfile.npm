@@ -1,7 +1,7 @@
 FROM guzo/base
 
 RUN apk update && \
-    apk add --no-cache nodejs && \
+    apk add --no-cache nodejs-npm && \
     npm install -g less && \
     npm install -g onchange && \
     rm -rf /tmp/npm-*
