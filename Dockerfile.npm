@@ -1,9 +1,8 @@
-FROM guzo/base
+FROM node:alpine
 
 RUN apk update && \
-    apk add --no-cache nodejs-npm && \
     npm install -g less && \
-    npm install -g onchange && \
-    rm -rf /tmp/npm-*
+    npm install -g onchange
 
+user node
 CMD [ "npm", "--help" ]
