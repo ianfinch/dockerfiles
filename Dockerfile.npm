@@ -1,6 +1,6 @@
-FROM node:alpine
+FROM node
 
-RUN apk update && \
+RUN apt update && \
     npm install -g less && \
     npm install -g onchange
 
