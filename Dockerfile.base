@@ -1,9 +1,0 @@
-FROM alpine
-RUN apk update && \
-    adduser -D ian && \
-    apk add bash && \
-    apk add curl && \
-    apk add git && \
-    apk add tree && \
-    sed -i 's|/bin/ash|/bin/bash|' /etc/passwd
-CMD su ian

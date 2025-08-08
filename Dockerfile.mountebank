@@ -1,4 +1,0 @@
-FROM guzo/npm
-RUN npm install -g mountebank
-CMD mb --port 2525 --mock --allowInject
-EXPOSE 1025-65535

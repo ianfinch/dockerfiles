@@ -12,6 +12,6 @@ all: hugo npm
 hugo:
 	docker build -t guzo/hugo -f Dockerfile.hugo .
 
-.PHONY: npm
-npm:
-	docker build -t guzo/npm -f Dockerfile.npm .
+.PHONY: node
+node:
+	docker build -t guzo/node -f Dockerfile.node .

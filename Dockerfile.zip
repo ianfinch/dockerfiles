@@ -1,4 +1,0 @@
-FROM guzo/base
-RUN apk add --update zip
-ENTRYPOINT ["zip"]
-CMD ["-h"]

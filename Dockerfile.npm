@@ -1,8 +1,0 @@
-FROM node
-
-RUN apt update && \
-    npm install -g less && \
-    npm install -g onchange
-
-user node
-CMD [ "npm", "--help" ]

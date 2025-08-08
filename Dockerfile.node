@@ -1,0 +1,9 @@
+FROM node
+
+RUN npm install -g jest && \
+    npm install -g less && \
+    npm install -g onchange && \
+    npm install -g neovim
+
+user node
+CMD [ "npm", "--help" ]

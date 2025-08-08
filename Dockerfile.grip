@@ -1,8 +1,0 @@
-FROM guzo/base
-
-RUN apk --no-cache add py-pip && \
-    pip install grip && \
-    mkdir /.grip && mkdir /data
-
-WORKDIR /data
-CMD grip --help

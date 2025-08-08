@@ -1,6 +1,0 @@
-FROM guzo/npm
-RUN npm install ngrok -g && \
-    mkdir  /home/ian/.ngrok2 && \
-    echo "web_addr: 0.0.0.0:4040" > /home/ian/.ngrok2/ngrok.yml && \
-    echo "region: eu" >> /home/ian/.ngrok2/ngrok.yml
-CMD [ "ngrok" ]

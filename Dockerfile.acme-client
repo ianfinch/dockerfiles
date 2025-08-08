@@ -1,3 +1,0 @@
-FROM guzo/base
-RUN apk update && apk add acme-client libressl
-CMD acme-client
